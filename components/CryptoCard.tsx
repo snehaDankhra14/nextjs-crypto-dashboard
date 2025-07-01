@@ -2,6 +2,7 @@
 import { TrendingDown, TrendingUp } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { formatMarketCap, formatPercentage, formatPrice } from "@/lib/format";
 
 interface Crypto {
     id: string;
@@ -13,30 +14,6 @@ interface Crypto {
     market_cap_rank: number;
     market_cap: number;
     total_volume: number;
-}
-
-const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-        minimumFractionDigits: 2,
-        maximumFractionDigits: price < 1 ? 6 : 2,
-    }).format(price)
-}
-
-const formatMarketCap = (marketCap: number) => {
-    if (marketCap >= 1e12) {
-        return `$${(marketCap / 1e12).toFixed(2)}T`
-    } else if (marketCap >= 1e9) {
-        return `$${(marketCap / 1e9).toFixed(2)}B`
-    } else if (marketCap >= 1e6) {
-        return `$${(marketCap / 1e6).toFixed(2)}M`
-    }
-    return `$${marketCap.toLocaleString()}`
-}
-
-const formatPercentage = (percentage: number) => {
-    return `${percentage >= 0 ? "+" : ""}${percentage.toFixed(2)}%`
 }
 
 export default function CryptoCard({ cryptoData, selectedCrypto, handleCryptoSelect }: { cryptoData: Crypto[], selectedCrypto: string, handleCryptoSelect: (id: string) => void }) {

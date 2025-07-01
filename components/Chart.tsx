@@ -6,6 +6,7 @@ import ChartError from "./ChartError"
 import ChartLoading from "./ChartLoading"
 import { ChartContainer, ChartTooltip } from "./ui/chart"
 import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
+import { formatPercentage, formatPrice } from "@/lib/format"
 
 interface ChartData {
     timestamp: number
@@ -40,19 +41,6 @@ interface Chart {
     chartError: string | null;
     chartLoading: boolean;
     chartData: ChartData[];
-}
-
-const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-        minimumFractionDigits: 2,
-        maximumFractionDigits: price < 1 ? 6 : 2,
-    }).format(price)
-}
-
-const formatPercentage = (percentage: number) => {
-    return `${percentage >= 0 ? "+" : ""}${percentage.toFixed(2)}%`
 }
 
 const CandlestickChart = ({ data }: { data: ChartData[] }) => {
