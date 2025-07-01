@@ -7,6 +7,7 @@ import { RefreshCw } from "lucide-react"
 import CryptoCard from "./CryptoCard"
 import Loading from "./Loading"
 import Chart from "./Chart"
+import ErrorLoadingData from "./ErrorLoadingData"
 
 interface CryptoData {
     id: string
@@ -217,18 +218,7 @@ export default function CryptoDashboard() {
 
     if (error) {
         return (
-            <div className="min-h-screen bg-background p-4">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center py-12">
-                        <h1 className="text-2xl font-bold text-destructive mb-4">Error Loading Data</h1>
-                        <p className="text-muted-foreground mb-4">{error}</p>
-                        <Button onClick={fetchCryptoData}>
-                            <RefreshCw className="w-4 h-4 mr-2" />
-                            Try Again
-                        </Button>
-                    </div>
-                </div>
-            </div>
+            <ErrorLoadingData error={error} fetchCryptoData={fetchCryptoData} />
         )
     }
 
