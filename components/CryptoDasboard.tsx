@@ -3,12 +3,12 @@
 
 import { useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Skeleton } from "@/components/ui/skeleton"
 import { Button } from "@/components/ui/button"
 import { RefreshCw, BarChart3, TrendingUpIcon } from "lucide-react"
 import { Line, LineChart, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Bar, BarChart } from "recharts"
 import { ChartContainer, ChartTooltip } from "@/components/ui/chart"
 import CryptoCard from "./CryptoCard"
+import Loading from "./Loading"
 
 interface CryptoData {
     id: string
@@ -426,26 +426,7 @@ export default function CryptoDashboard() {
 
                 {/* Crypto Cards Grid */}
                 {loading ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        {Array.from({ length: 12 }).map((_, index) => (
-                            <Card key={index}>
-                                <CardHeader className="pb-3">
-                                    <div className="flex items-center space-x-3">
-                                        <Skeleton className="w-8 h-8 rounded-full" />
-                                        <div className="space-y-1">
-                                            <Skeleton className="h-4 w-16" />
-                                            <Skeleton className="h-3 w-12" />
-                                        </div>
-                                    </div>
-                                </CardHeader>
-                                <CardContent>
-                                    <Skeleton className="h-6 w-20 mb-2" />
-                                    <Skeleton className="h-4 w-16 mb-1" />
-                                    <Skeleton className="h-4 w-24" />
-                                </CardContent>
-                            </Card>
-                        ))}
-                    </div>
+                    <Loading />
                 ) : (
                     <CryptoCard cryptoData={cryptoData} selectedCrypto={selectedCrypto} handleCryptoSelect={handleCryptoSelect} />
                 )}
