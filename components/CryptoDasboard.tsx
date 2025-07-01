@@ -9,6 +9,7 @@ import { Line, LineChart, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Bar,
 import { ChartContainer, ChartTooltip } from "@/components/ui/chart"
 import CryptoCard from "./CryptoCard"
 import Loading from "./Loading"
+import ChartLoading from "./ChartLoading"
 
 interface CryptoData {
     id: string
@@ -371,12 +372,7 @@ export default function CryptoDashboard() {
                             </div>
                         )}
                         {chartLoading ? (
-                            <div className="h-[400px] flex items-center justify-center">
-                                <div className="text-center">
-                                    <RefreshCw className="w-8 h-8 animate-spin mx-auto mb-4" />
-                                    <p className="text-muted-foreground">Loading chart data...</p>
-                                </div>
-                            </div>
+                            <ChartLoading />
                         ) : (
                             <ChartContainer
                                 config={{
