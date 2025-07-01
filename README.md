@@ -1,6 +1,10 @@
 # 💹 Crypto Dashboard
 
-A real-time cryptocurrency dashboard built with **Next.js**, **Chart.js**, and **ShadCN UI**, powered by data from the [CoinGecko API](https://www.coingecko.com/en/api). View live market prices, 24h price changes, market caps, and beautiful line graphs for top cryptocurrencies.
+A simple real-time cryptocurrency dashboard built with **Next.js**, **Chart.js**, and **ShadCN UI**, powered by data from the [CoinGecko API](https://www.coingecko.com/en/api). View live market prices, 24h price changes, market caps, and beautiful line graphs for top cryptocurrencies.
+
+<div align="center">
+  <img src="https://github.com/reymundvirtus/nextjs-crypto-dashboard/blob/main/public/assets/ss.png" width="80%" />
+</div>
 
 ---
 
