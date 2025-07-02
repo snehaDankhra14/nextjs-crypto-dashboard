@@ -35,8 +35,10 @@ yarn dev
 
 Open http://localhost:3000 in your browser to view the app.
 
-### 📌 Notes
-
-No API key needed — CoinGecko's public API is used.
-Chart data updates every 30 seconds or when you click on any crypto card.
-Bitcoin is shown by default in the graph.
+> ### 📌 Notes
+> 
+> No API key needed. 
+> 
+> CoinGecko's public API is used. 
+> 
+> Bitcoin is shown by default in the graph.
